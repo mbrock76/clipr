@@ -1,0 +1,40 @@
+package com.example.clipr.controller;
+
+import com.example.clipr.model.User;
+import com.example.clipr.service.UserService;
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
+
+@RestController
+@RequestMapping("/user")
+public class UserController {
+
+    @Autowired
+    UserService myUserService;
+
+    @PostMapping
+    public void createNewUser(@RequestBody User myUser){
+        myUser.setPass_word(BCrypt.hashpw(myUser.getPass_word(), BCrypt.gensalt()));
+        myUserService.createNewUser(myUser);
+    }
+
+    @PostMapping("/checkpwd")
+    public boolean checkPassword(@RequestBody User temp){
+
+        User myUser = myUserService.findUserById(temp.getUser_id());
+
+        return BCrypt.checkpw(temp.getPass_word(), myUser.getPass_word());
+    }
+
+    @GetMapping
+    public List<User> getAllUsers(){ return myUserService.getAllUsers();
+    }
+
+    @GetMapping("/{id}")
+    public User findUserById(@PathVariable Integer id){
+        return myUserService.findUserById(id);
+    }
+}
