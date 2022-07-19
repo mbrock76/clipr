@@ -23,4 +23,7 @@ public class CouponController {
     @PostMapping
     public void createNewCoupon(@RequestBody Coupon myCoupon){ myCouponService.createNewCoupon(myCoupon); }
 
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Integer id){ myCouponService.deleteCouponById(id); }
+
 }

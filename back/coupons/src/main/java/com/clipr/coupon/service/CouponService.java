@@ -22,4 +22,7 @@ public class CouponService {
     //create a new coupon record
     public void createNewCoupon(Coupon myCoupon){ myCouponRepo.save(myCoupon); }
 
+    //delete a coupon record
+    public void deleteCouponById(Integer id){ myCouponRepo.deleteById(id); }
+
 }

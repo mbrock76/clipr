@@ -22,7 +22,7 @@ public class UserService {
     //create a new user record
     public void createNewUser(User myUser){ myUserRepo.save(myUser); }
 
-    //update a user record
-    //public void updateUser(User myUser){ myUserRepo.}
+    //remove a store record
+    public void deleteUserById(Integer id){ myUserRepo.deleteById(id); }
 
 }

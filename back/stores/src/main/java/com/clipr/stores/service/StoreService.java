@@ -23,9 +23,8 @@ public class StoreService {
     public void createNewStore(Store myStore){ myStoreRepo.save(myStore); }
 
     //get a list of stores with a supplied company name
-    public List<Store> getStoresByCompany(String company){ return myStoreRepo.findBy()}
+    public List<Store> getStoresByCompany(String company){ return myStoreRepo.findByCompany(company); }
 
-
-
-
+    //remove a store record
+    public void deleteStoreById(Integer id){ myStoreRepo.deleteById(id); }
 }
