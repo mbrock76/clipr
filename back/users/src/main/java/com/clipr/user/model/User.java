@@ -19,5 +19,4 @@ public class User {
     private int redeemed;
     private int created;
 
-    public User(){}
 }
