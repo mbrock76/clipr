@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("/coupon")
+@RequestMapping("/coupons")
 public class CouponController {
 
     @Autowired
@@ -19,6 +19,9 @@ public class CouponController {
 
     @GetMapping("/{id}")
     public Coupon getCouponById(@PathVariable Integer id){ return myCouponService.getCouponById(id); }
+
+    @GetMapping("/user_id/{id}")
+    public String getCouponsByUserId(@PathVariable Integer id){ return myCouponService.getCouponsByUserId(id); }
 
     @PostMapping
     public void createNewCoupon(@RequestBody Coupon myCoupon){ myCouponService.createNewCoupon(myCoupon); }

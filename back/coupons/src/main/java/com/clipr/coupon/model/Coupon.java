@@ -9,7 +9,6 @@ public class Coupon {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "coupon_id")
     private int coupon_id;
     private int created_by;
     private int store_id;

@@ -1,0 +1,11 @@
+service		port
+
+users		http://localhost:8081/users
+
+coupons		http://localhost:8082/coupons
+
+stores		http://localhost:8083/stores
+
+users_coupons	http://localhost:8084/users_coupons
+
+users_stores	http://localhost:8085/users_stores

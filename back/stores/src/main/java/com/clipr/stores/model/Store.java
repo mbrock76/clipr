@@ -9,7 +9,6 @@ public class Store {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "store_id")
     private int store_id;
     private String store_name;
     private String address;

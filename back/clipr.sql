@@ -31,13 +31,14 @@ create table clipr."coupons" (
 	"product_id" text not null,
 	"product_name" text not null,
 	"discount" numeric not null,
-	"discount_type" text not null,
+	"discount_type" text not null, -- % or $ characters so discount is always a decimal number
 	"qty_redeemed" integer default 0,
 	"created" integer default extract(epoch from now()),
 	"expires" integer default null
 );
 
 create table clipr."users_coupons" (
+	"user_coupon_id" serial primary key,
 	"user_id" integer not null references clipr."users"(user_id),
 	"coupon_id" integer not null references clipr."coupons"(coupon_id)
 );
@@ -48,6 +49,7 @@ create table clipr."users_coupons" (
 --);
 
 create table clipr."users_stores" (
+	"user_store_id" serial primary key,
 	"user_id" integer not null references clipr."users"(user_id),
 	"store_id" integer not null references clipr."stores"(store_id)
 );
@@ -64,4 +66,9 @@ insert into clipr."stores" ("store_name", "address", "company", "email") values
 insert into clipr."users_stores" ("user_id", "store_id") values 
 ('2', '1');
 
+insert into clipr."coupons" ("created_by", "store_id", "product_id", "product_name", "discount", "discount_type", "expires") values
+('2', '1', 'pro-123', 'lettuce', '0.5', '%', '1661545360');
+
+insert into clipr."users_coupons" ("user_id", "coupon_id") values
+('3', '1');
 
