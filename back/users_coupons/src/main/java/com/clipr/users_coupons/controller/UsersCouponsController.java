@@ -18,17 +18,12 @@ public class UsersCouponsController {
     public List<UserCoupon> getAllUsersCoupons(){ return myUsersCouponsService.getAllUsersCoupons(); }
 
     @GetMapping("/{id}")
-    public UserCoupon getUserCouponById(Integer id){
-        return  myUsersCouponsService.getUserCouponById(id);
-    }
+    public UserCoupon getUserCouponById(@PathVariable Integer id){ return  myUsersCouponsService.getUserCouponById(id); }
 
     @GetMapping("/user_id/{id}")
-    public List<UserCoupon> getCouponsByUserId(Integer id){
-        System.out.println(id);
-        return myUsersCouponsService.getCouponsByUserId(id); }
+    public List<UserCoupon> getCouponsByUserId(@PathVariable Integer id){ return myUsersCouponsService.getCouponsByUserId(id); }
 
     @GetMapping("/coupon_id/{id}")
-    public List<UserCoupon> getUsersByCouponId(Integer id){ return myUsersCouponsService.getCouponsByUserId(id); }
-
+    public List<UserCoupon> getUsersByCouponId(@PathVariable Integer id){ return myUsersCouponsService.getUsersByCouponId(id); }
 
 }

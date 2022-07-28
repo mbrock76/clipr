@@ -9,14 +9,21 @@ public class Coupon {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int coupon_id;
-    private int created_by;
-    private int store_id;
-    private String product_id;
-    private String product_name;
+    @Column(name = "coupon_id")
+    private int couponId;
+    @Column(name = "created_by")
+    private int createdBy;
+    @Column(name = "store_id")
+    private int storeId;
+    @Column(name = "product_id")
+    private String productId;
+    @Column(name = "prodoct_name")
+    private String productName;
     private double discount;
-    private String discount_type;
-    private int qty_redeemed;
+    @Column(name = "discount_type")
+    private String discountType;
+    @Column(name = "qty_redeemed")
+    private int qtyRedeemed;
     private int created;
     private int expires;
 
